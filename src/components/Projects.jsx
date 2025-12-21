@@ -1,15 +1,20 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SectionWrapper from './ui/SectionWrapper';
-import { ExternalLink, Github, Layers } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
-const ProjectCard = ({ title, description, tags, delay, image, githubLink, liveLink }) => {
-    // Use CSS class for base visibility, animation is enhancement
+const ProjectCard = ({ title, description, tags, delay, image, githubLink, liveLink, isMobile }) => {
+    const CardWrapper = isMobile ? 'div' : motion.div;
+    const cardProps = isMobile ? {} : {
+        initial: { opacity: 0, y: 30 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.1 },
+        transition: { delay, duration: 0.6 }
+    };
+
     return (
-    <motion.div
-        initial={{ opacity: 1, y: 0 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ delay: delay * 0.3, duration: 0.2 }}
+    <CardWrapper
+        {...cardProps}
         className="group relative bg-slate-900/50 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-500/50 transition-all duration-500 h-full flex flex-col"
     >
         {/* Image Section */}
@@ -53,11 +58,23 @@ const ProjectCard = ({ title, description, tags, delay, image, githubLink, liveL
                 ))}
             </div>
         </div>
-    </motion.div>
+    </CardWrapper>
     );
 };
 
 const Projects = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768); // md breakpoint
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const projects = [
         {
             title: 'DevHub – Developer Collaboration Platform',
@@ -119,15 +136,21 @@ const Projects = () => {
         <div id="projects" className="relative min-h-[400px]">
             <SectionWrapper>
                 <div className="text-center mb-12 sm:mb-14 md:mb-16">
-                    <motion.h2
-                        initial={{ opacity: 1, y: 0 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        transition={{ duration: 0.2 }}
-                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 inline-block border-b-2 sm:border-b-4 border-primary-500 pb-2"
-                    >
-                        Featured <span className="text-gradient">Projects</span>
-                    </motion.h2>
+                    {isMobile ? (
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 inline-block border-b-2 sm:border-b-4 border-primary-500 pb-2">
+                            Featured <span className="text-gradient">Projects</span>
+                        </h2>
+                    ) : (
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.6 }}
+                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 inline-block border-b-2 sm:border-b-4 border-primary-500 pb-2"
+                        >
+                            Featured <span className="text-gradient">Projects</span>
+                        </motion.h2>
+                    )}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -135,7 +158,8 @@ const Projects = () => {
                         <ProjectCard 
                             key={project.title} 
                             {...project} 
-                            delay={Math.min(index * 0.05, 0.3)}
+                            delay={project.delay}
+                            isMobile={isMobile}
                         />
                     ))}
                 </div>

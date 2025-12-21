@@ -38,3 +38,15 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+/* Fix mobile menu link colors - ensure all links have same color */
+nav a[href="#education"],
+nav a[href="#education"]:visited,
+nav a[href="#education"]:active,
+nav a[href="#education"]:focus {
+  color: rgb(203 213 225) !important;
+}
+
+nav a[href="#education"]:hover {
+  color: rgb(34 211 238) !important;
+}
