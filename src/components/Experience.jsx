@@ -46,7 +46,7 @@ const ExperienceTimeline = () => {
         {
             role: "Artificial Intelligence Intern",
             company: "Infosys Springboard",
-            duration: "Sep '24 - Nov '24",
+            duration: "Sep '25 - Nov '25",
             description: "Built an AI-driven Dynamic Pricing System for ride-sharing using XGBoost and LightGBM to optimize prices based on demand and supply. Developed automated data pipelines, performed EDA and feature engineering, and validated revenue impact through backtesting and KPIs. Created an interactive dashboard to visualize insights and compare pricing strategies.",
             techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "React.js", "Tailwind CSS"],
             delay: 0.1

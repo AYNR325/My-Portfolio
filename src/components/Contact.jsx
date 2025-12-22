@@ -88,7 +88,7 @@ const Contact = () => {
                         Let's <span className="text-gradient">Connect</span>
                     </motion.h2>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                        I am currently open to new opportunities. If you have any questions or would like to discuss potential collaborations, please feel free to reach out. I look forward to connecting with you!
                     </p>
                 </div>
 
