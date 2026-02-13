@@ -44,12 +44,18 @@ const ExperienceCard = ({ role, company, duration, description, techStack, delay
 const ExperienceTimeline = () => {
     const experiences = [
         {
+            role: "Software Engineer Intern",
+            company: "Muno AI",
+            duration: "Feb '26 - Present",
+            delay: 0.1
+        },
+        {
             role: "Artificial Intelligence Intern",
             company: "Infosys Springboard",
             duration: "Sep '25 - Nov '25",
             description: "Built an AI-driven Dynamic Pricing System for ride-sharing using XGBoost and LightGBM to optimize prices based on demand and supply. Developed automated data pipelines, performed EDA and feature engineering, and validated revenue impact through backtesting and KPIs. Created an interactive dashboard to visualize insights and compare pricing strategies.",
             techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "React.js", "Tailwind CSS"],
-            delay: 0.1
+            delay: 0.2
         },
         {
             role: "Full Stack Developer Intern",
@@ -57,7 +63,7 @@ const ExperienceTimeline = () => {
             duration: "Jun '25 - Jul '25",
             description: "Worked on frontend and backend development using the MERN stack, building APIs, UI screens, and form validations. Delivered multiple end-to-end features by integrating backend logic with responsive user interfaces.",
             techStack: ["JavaScript", "React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
-            delay: 0.2
+            delay: 0.3
         }
     ];
 
@@ -111,7 +117,7 @@ const ExperienceTimeline = () => {
                                         {exp.description}
                                     </p>
                                     <div className={`flex flex-wrap gap-1.5 sm:gap-2 ${index % 2 !== 0 ? 'lg:justify-end' : ''}`}>
-                                        {exp.techStack.map((tech) => (
+                                        {exp.techStack?.map((tech) => (
                                             <span key={tech} className="px-2 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded-md border border-white/5">
                                                 {tech}
                                             </span>
