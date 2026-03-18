@@ -58,7 +58,7 @@ const Hero = () => {
 
                             {/* Image Container */}
                             <div className="relative w-full h-full rounded-full border-4 border-white/10 overflow-hidden bg-slate-900/50 backdrop-blur-sm flex items-center justify-center group">
-                                <img src="/myPhoto.jpeg" alt="Ayush Rokade" className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: 'center 35%' }} />
+                                <img src="/Ayush-photo.png" alt="Ayush Rokade" className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: 'center 35%' }} />
                             </div>
 
 
