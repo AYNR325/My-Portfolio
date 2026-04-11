@@ -32,7 +32,7 @@ const Hero = () => {
                                 Passionate about crafting user-friendly experiences and solving real-world problems with code.
                             </p>
 
-                            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                            {/* <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                                 <a
                                     href="/Ayush_Rokade_Resume.pdf"
                                     download="Resume-Ayush_Rokade.pdf"
@@ -41,7 +41,7 @@ const Hero = () => {
                                     <Download size={18} className="sm:w-5 sm:h-5" />
                                     Download Resume
                                 </a>
-                            </div>
+                            </div> */}
                         </motion.div>
                     </div>
 

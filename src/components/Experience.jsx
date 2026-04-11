@@ -31,7 +31,7 @@ const ExperienceCard = ({ role, company, duration, description, techStack, delay
                 </p>
                 <div className="flex flex-wrap gap-2">
                     {techStack.map((tech) => (
-                        <span key={tech} className="px-2 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded-md border border-white/5">
+                        <span key={tech} className="px-2 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded-md border border-white/5 hover:bg-slate-700 hover:border-primary-500 transition duration-200 ease-out shadow-sm hover:shadow-primary-500/20">
                             {tech}
                         </span>
                     ))}
@@ -44,10 +44,18 @@ const ExperienceCard = ({ role, company, duration, description, techStack, delay
 const ExperienceTimeline = () => {
     const experiences = [
         {
+            role: "Graduate Trainee Tech",
+            company: "LS Digital",
+            duration: "Mar '26 - Present",
+            delay: 0.1
+        },
+        {
             role: "Software Engineer Intern",
             company: "Muno AI",
-            duration: "Feb '26 - Present",
-            delay: 0.1
+            duration: "Feb '26 - Mar '26",
+            description:"Worked as a Software Engineer Intern at Muno AI, contributing to Version 2 of the product by converting Figma designs into responsive UIs using React, TypeScript, and Tailwind CSS. Built dynamic screens by integrating backend APIs, managed state with Zustand, and implemented form validation using Zod to ensure a scalable and reliable frontend.",
+            techStack: ["Typescript", "React.js", "Tailwind CSS", "Zustand", "Zod", "Node.js", "Express.js", "MongoDB"],
+            delay: 0.2
         },
         {
             role: "Artificial Intelligence Intern",
@@ -55,7 +63,7 @@ const ExperienceTimeline = () => {
             duration: "Sep '25 - Nov '25",
             description: "Built an AI-driven Dynamic Pricing System for ride-sharing using XGBoost and LightGBM to optimize prices based on demand and supply. Developed automated data pipelines, performed EDA and feature engineering, and validated revenue impact through backtesting and KPIs. Created an interactive dashboard to visualize insights and compare pricing strategies.",
             techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "React.js", "Tailwind CSS"],
-            delay: 0.2
+            delay: 0.3
         },
         {
             role: "Full Stack Developer Intern",
@@ -63,7 +71,7 @@ const ExperienceTimeline = () => {
             duration: "Jun '25 - Jul '25",
             description: "Worked on frontend and backend development using the MERN stack, building APIs, UI screens, and form validations. Delivered multiple end-to-end features by integrating backend logic with responsive user interfaces.",
             techStack: ["JavaScript", "React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
-            delay: 0.3
+            delay: 0.4
         }
     ];
 
@@ -118,7 +126,7 @@ const ExperienceTimeline = () => {
                                     </p>
                                     <div className={`flex flex-wrap gap-1.5 sm:gap-2 ${index % 2 !== 0 ? 'lg:justify-end' : ''}`}>
                                         {exp.techStack?.map((tech) => (
-                                            <span key={tech} className="px-2 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded-md border border-white/5">
+                                            <span key={tech} className="px-2 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded-md border border-white/5 hover:bg-slate-700 hover:border-primary-500 transition duration-200 ease-out shadow-sm hover:shadow-primary-500/20">
                                                 {tech}
                                             </span>
                                         ))}
